@@ -1,0 +1,767 @@
+{
+  "contractName": "ITransferManager",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_data",
+          "type": "bytes"
+        }
+      ],
+      "name": "executeTransfer",
+      "outputs": [
+        {
+          "internalType": "enum ITransferManager.Result",
+          "name": "result",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_data",
+          "type": "bytes"
+        }
+      ],
+      "name": "verifyTransfer",
+      "outputs": [
+        {
+          "internalType": "enum ITransferManager.Result",
+          "name": "result",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "partition",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_partition",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "_tokenHolder",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_additionalBalance",
+          "type": "uint256"
+        }
+      ],
+      "name": "getTokensByPartition",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"executeTransfer\",\"outputs\":[{\"internalType\":\"enum ITransferManager.Result\",\"name\":\"result\",\"type\":\"uint8\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_partition\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"_tokenHolder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_additionalBalance\",\"type\":\"uint256\"}],\"name\":\"getTokensByPartition\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"verifyTransfer\",\"outputs\":[{\"internalType\":\"enum ITransferManager.Result\",\"name\":\"result\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"partition\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"getTokensByPartition(bytes32,address,uint256)\":{\"params\":{\"_additionalBalance\":\"It is the `_value` that transfer during transfer/transferFrom function call\",\"_partition\":\"Identifier\",\"_tokenHolder\":\"Whom token amount need to query\"}}},\"title\":\"Interface to be implemented by all Transfer Manager modules\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"executeTransfer(address,address,uint256,bytes)\":{\"notice\":\"Determines if the transfer between these two accounts can happen\"},\"getTokensByPartition(bytes32,address,uint256)\":{\"notice\":\"return the amount of tokens for a given user as per the partition\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/ITransferManager.sol\":\"ITransferManager\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/ITransferManager.sol\":{\"keccak256\":\"0xed8a4381b94153608b6149dd643615c42de9d8a29efd87398a63c329bfd00806\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://716823aa0737d3fa5ec61a523b430f2d81c7f203d5f8fd92edd183ff439a5f08\",\"dweb:/ipfs/QmeiuyCsZreyw2zoohNvh36g9FifM1qVi9HAfrPLTejbpp\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.19;\n\n/**\n * @title Interface to be implemented by all Transfer Manager modules\n */\ninterface ITransferManager {\n    //  If verifyTransfer returns:\n    //  FORCE_VALID, the transaction will always be valid, regardless of other TM results\n    //  INVALID, then the transfer should not be allowed regardless of other TM results\n    //  VALID, then the transfer is valid for this TM\n    //  NA, then the result from this TM is ignored\n    enum Result {INVALID, NA, VALID, FORCE_VALID}\n\n    /**\n     * @notice Determines if the transfer between these two accounts can happen\n     */\n    function executeTransfer(address _from, address _to, uint256 _amount, bytes calldata _data) external returns(Result result);\n\n    function verifyTransfer(address _from, address _to, uint256 _amount, bytes calldata _data) external view returns(Result result, bytes32 partition);\n\n    /**\n     * @notice return the amount of tokens for a given user as per the partition\n     * @param _partition Identifier\n     * @param _tokenHolder Whom token amount need to query\n     * @param _additionalBalance It is the `_value` that transfer during transfer/transferFrom function call\n     */\n    function getTokensByPartition(bytes32 _partition, address _tokenHolder, uint256 _additionalBalance) external view returns(uint256 amount);\n\n}\n",
+  "sourcePath": "/Users/hanbin/opusm/st-mvp/contracts/interfaces/ITransferManager.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/interfaces/ITransferManager.sol",
+    "exportedSymbols": {
+      "ITransferManager": [
+        2537
+      ]
+    },
+    "id": 2538,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2487,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".19"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:15"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "ITransferManager",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 2488,
+          "nodeType": "StructuredDocumentation",
+          "src": "57:77:15",
+          "text": " @title Interface to be implemented by all Transfer Manager modules"
+        },
+        "fullyImplemented": false,
+        "id": 2537,
+        "linearizedBaseContracts": [
+          2537
+        ],
+        "name": "ITransferManager",
+        "nameLocation": "145:16:15",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "ITransferManager.Result",
+            "id": 2493,
+            "members": [
+              {
+                "id": 2489,
+                "name": "INVALID",
+                "nameLocation": "500:7:15",
+                "nodeType": "EnumValue",
+                "src": "500:7:15"
+              },
+              {
+                "id": 2490,
+                "name": "NA",
+                "nameLocation": "509:2:15",
+                "nodeType": "EnumValue",
+                "src": "509:2:15"
+              },
+              {
+                "id": 2491,
+                "name": "VALID",
+                "nameLocation": "513:5:15",
+                "nodeType": "EnumValue",
+                "src": "513:5:15"
+              },
+              {
+                "id": 2492,
+                "name": "FORCE_VALID",
+                "nameLocation": "520:11:15",
+                "nodeType": "EnumValue",
+                "src": "520:11:15"
+              }
+            ],
+            "name": "Result",
+            "nameLocation": "492:6:15",
+            "nodeType": "EnumDefinition",
+            "src": "487:45:15"
+          },
+          {
+            "documentation": {
+              "id": 2494,
+              "nodeType": "StructuredDocumentation",
+              "src": "538:91:15",
+              "text": " @notice Determines if the transfer between these two accounts can happen"
+            },
+            "functionSelector": "3d321731",
+            "id": 2508,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "executeTransfer",
+            "nameLocation": "643:15:15",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2503,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2496,
+                  "mutability": "mutable",
+                  "name": "_from",
+                  "nameLocation": "667:5:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2508,
+                  "src": "659:13:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2495,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "659:7:15",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2498,
+                  "mutability": "mutable",
+                  "name": "_to",
+                  "nameLocation": "682:3:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2508,
+                  "src": "674:11:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2497,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "674:7:15",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2500,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nameLocation": "695:7:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2508,
+                  "src": "687:15:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2499,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "687:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2502,
+                  "mutability": "mutable",
+                  "name": "_data",
+                  "nameLocation": "719:5:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2508,
+                  "src": "704:20:15",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 2501,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "704:5:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "658:67:15"
+            },
+            "returnParameters": {
+              "id": 2507,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2506,
+                  "mutability": "mutable",
+                  "name": "result",
+                  "nameLocation": "750:6:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2508,
+                  "src": "743:13:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_Result_$2493",
+                    "typeString": "enum ITransferManager.Result"
+                  },
+                  "typeName": {
+                    "id": 2505,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 2504,
+                      "name": "Result",
+                      "nameLocations": [
+                        "743:6:15"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 2493,
+                      "src": "743:6:15"
+                    },
+                    "referencedDeclaration": 2493,
+                    "src": "743:6:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_Result_$2493",
+                      "typeString": "enum ITransferManager.Result"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "742:15:15"
+            },
+            "scope": 2537,
+            "src": "634:124:15",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "f1d74b0f",
+            "id": 2524,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "verifyTransfer",
+            "nameLocation": "773:14:15",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2517,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2510,
+                  "mutability": "mutable",
+                  "name": "_from",
+                  "nameLocation": "796:5:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2524,
+                  "src": "788:13:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2509,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "788:7:15",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2512,
+                  "mutability": "mutable",
+                  "name": "_to",
+                  "nameLocation": "811:3:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2524,
+                  "src": "803:11:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2511,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "803:7:15",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2514,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nameLocation": "824:7:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2524,
+                  "src": "816:15:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2513,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "816:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2516,
+                  "mutability": "mutable",
+                  "name": "_data",
+                  "nameLocation": "848:5:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2524,
+                  "src": "833:20:15",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 2515,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "833:5:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "787:67:15"
+            },
+            "returnParameters": {
+              "id": 2523,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2520,
+                  "mutability": "mutable",
+                  "name": "result",
+                  "nameLocation": "884:6:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2524,
+                  "src": "877:13:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_Result_$2493",
+                    "typeString": "enum ITransferManager.Result"
+                  },
+                  "typeName": {
+                    "id": 2519,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 2518,
+                      "name": "Result",
+                      "nameLocations": [
+                        "877:6:15"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 2493,
+                      "src": "877:6:15"
+                    },
+                    "referencedDeclaration": 2493,
+                    "src": "877:6:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_Result_$2493",
+                      "typeString": "enum ITransferManager.Result"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2522,
+                  "mutability": "mutable",
+                  "name": "partition",
+                  "nameLocation": "900:9:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2524,
+                  "src": "892:17:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 2521,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "892:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "876:34:15"
+            },
+            "scope": 2537,
+            "src": "764:147:15",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2525,
+              "nodeType": "StructuredDocumentation",
+              "src": "917:296:15",
+              "text": " @notice return the amount of tokens for a given user as per the partition\n @param _partition Identifier\n @param _tokenHolder Whom token amount need to query\n @param _additionalBalance It is the `_value` that transfer during transfer/transferFrom function call"
+            },
+            "functionSelector": "2829e651",
+            "id": 2536,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTokensByPartition",
+            "nameLocation": "1227:20:15",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2532,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2527,
+                  "mutability": "mutable",
+                  "name": "_partition",
+                  "nameLocation": "1256:10:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2536,
+                  "src": "1248:18:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 2526,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1248:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2529,
+                  "mutability": "mutable",
+                  "name": "_tokenHolder",
+                  "nameLocation": "1276:12:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2536,
+                  "src": "1268:20:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2528,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1268:7:15",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2531,
+                  "mutability": "mutable",
+                  "name": "_additionalBalance",
+                  "nameLocation": "1298:18:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2536,
+                  "src": "1290:26:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2530,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1290:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1247:70:15"
+            },
+            "returnParameters": {
+              "id": 2535,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2534,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "1348:6:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2536,
+                  "src": "1340:14:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2533,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1340:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1339:16:15"
+            },
+            "scope": 2537,
+            "src": "1218:138:15",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 2538,
+        "src": "135:1224:15",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:1328:15"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.19+commit.7dd6d404.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.10",
+  "updatedAt": "2023-07-24T08:15:11.950Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "getTokensByPartition(bytes32,address,uint256)": {
+        "params": {
+          "_additionalBalance": "It is the `_value` that transfer during transfer/transferFrom function call",
+          "_partition": "Identifier",
+          "_tokenHolder": "Whom token amount need to query"
+        }
+      }
+    },
+    "title": "Interface to be implemented by all Transfer Manager modules",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "executeTransfer(address,address,uint256,bytes)": {
+        "notice": "Determines if the transfer between these two accounts can happen"
+      },
+      "getTokensByPartition(bytes32,address,uint256)": {
+        "notice": "return the amount of tokens for a given user as per the partition"
+      }
+    },
+    "version": 1
+  }
+}

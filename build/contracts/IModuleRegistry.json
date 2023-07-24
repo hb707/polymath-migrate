@@ -1,0 +1,2826 @@
+{
+  "contractName": "IModuleRegistry",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_moduleFactory",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "name": "ModuleRegistered",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_moduleFactory",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_decisionMaker",
+          "type": "address"
+        }
+      ],
+      "name": "ModuleRemoved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_moduleFactory",
+          "type": "address"
+        }
+      ],
+      "name": "ModuleUnverified",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_moduleFactory",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_securityToken",
+          "type": "address"
+        }
+      ],
+      "name": "ModuleUsed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_moduleFactory",
+          "type": "address"
+        }
+      ],
+      "name": "ModuleVerified",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Pause",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Unpause",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_moduleFactory",
+          "type": "address"
+        },
+        {
+          "internalType": "bool",
+          "name": "_isUpgrade",
+          "type": "bool"
+        }
+      ],
+      "name": "useModule",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_moduleFactory",
+          "type": "address"
+        }
+      ],
+      "name": "useModule",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_moduleFactory",
+          "type": "address"
+        }
+      ],
+      "name": "registerModule",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_moduleFactory",
+          "type": "address"
+        }
+      ],
+      "name": "removeModule",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_moduleFactory",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_securityToken",
+          "type": "address"
+        }
+      ],
+      "name": "isCompatibleModule",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isCompatible",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_moduleFactory",
+          "type": "address"
+        }
+      ],
+      "name": "verifyModule",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_moduleFactory",
+          "type": "address"
+        }
+      ],
+      "name": "unverifyModule",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_factoryAddress",
+          "type": "address"
+        }
+      ],
+      "name": "getFactoryDetails",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isVerified",
+          "type": "bool"
+        },
+        {
+          "internalType": "address",
+          "name": "factoryOwner",
+          "type": "address"
+        },
+        {
+          "internalType": "address[]",
+          "name": "usingTokens",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint8",
+          "name": "_moduleType",
+          "type": "uint8"
+        },
+        {
+          "internalType": "address",
+          "name": "_securityToken",
+          "type": "address"
+        }
+      ],
+      "name": "getTagsByTypeAndToken",
+      "outputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "tags",
+          "type": "bytes32[]"
+        },
+        {
+          "internalType": "address[]",
+          "name": "factories",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint8",
+          "name": "_moduleType",
+          "type": "uint8"
+        }
+      ],
+      "name": "getTagsByType",
+      "outputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "tags",
+          "type": "bytes32[]"
+        },
+        {
+          "internalType": "address[]",
+          "name": "factories",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint8",
+          "name": "_moduleType",
+          "type": "uint8"
+        }
+      ],
+      "name": "getAllModulesByType",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "factories",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint8",
+          "name": "_moduleType",
+          "type": "uint8"
+        }
+      ],
+      "name": "getModulesByType",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "factories",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint8",
+          "name": "_moduleType",
+          "type": "uint8"
+        },
+        {
+          "internalType": "address",
+          "name": "_securityToken",
+          "type": "address"
+        }
+      ],
+      "name": "getModulesByTypeAndToken",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "factories",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "updateFromRegistry",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "ownerAddress",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "isPaused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "paused",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_tokenContract",
+          "type": "address"
+        }
+      ],
+      "name": "reclaimERC20",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "unpause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_moduleFactory\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"}],\"name\":\"ModuleRegistered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_moduleFactory\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_decisionMaker\",\"type\":\"address\"}],\"name\":\"ModuleRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_moduleFactory\",\"type\":\"address\"}],\"name\":\"ModuleUnverified\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_moduleFactory\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_securityToken\",\"type\":\"address\"}],\"name\":\"ModuleUsed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_moduleFactory\",\"type\":\"address\"}],\"name\":\"ModuleVerified\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Pause\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpause\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"_moduleType\",\"type\":\"uint8\"}],\"name\":\"getAllModulesByType\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"factories\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_factoryAddress\",\"type\":\"address\"}],\"name\":\"getFactoryDetails\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isVerified\",\"type\":\"bool\"},{\"internalType\":\"address\",\"name\":\"factoryOwner\",\"type\":\"address\"},{\"internalType\":\"address[]\",\"name\":\"usingTokens\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"_moduleType\",\"type\":\"uint8\"}],\"name\":\"getModulesByType\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"factories\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"_moduleType\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"_securityToken\",\"type\":\"address\"}],\"name\":\"getModulesByTypeAndToken\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"factories\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"_moduleType\",\"type\":\"uint8\"}],\"name\":\"getTagsByType\",\"outputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"tags\",\"type\":\"bytes32[]\"},{\"internalType\":\"address[]\",\"name\":\"factories\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"_moduleType\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"_securityToken\",\"type\":\"address\"}],\"name\":\"getTagsByTypeAndToken\",\"outputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"tags\",\"type\":\"bytes32[]\"},{\"internalType\":\"address[]\",\"name\":\"factories\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_moduleFactory\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_securityToken\",\"type\":\"address\"}],\"name\":\"isCompatibleModule\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isCompatible\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"isPaused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"paused\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"ownerAddress\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_tokenContract\",\"type\":\"address\"}],\"name\":\"reclaimERC20\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_moduleFactory\",\"type\":\"address\"}],\"name\":\"registerModule\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_moduleFactory\",\"type\":\"address\"}],\"name\":\"removeModule\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_moduleFactory\",\"type\":\"address\"}],\"name\":\"unverifyModule\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"updateFromRegistry\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_moduleFactory\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"_isUpgrade\",\"type\":\"bool\"}],\"name\":\"useModule\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_moduleFactory\",\"type\":\"address\"}],\"name\":\"useModule\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_moduleFactory\",\"type\":\"address\"}],\"name\":\"verifyModule\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"getAllModulesByType(uint8)\":{\"params\":{\"_moduleType\":\"Type of Module\"},\"returns\":{\"factories\":\"address array that contains the list of addresses of module factory contracts.\"}},\"getFactoryDetails(address)\":{\"params\":{\"_factoryAddress\":\"is the address of the module factory\"},\"returns\":{\"factoryOwner\":\"address of the factory owner\",\"isVerified\":\"bool indicating whether module factory is verified\",\"usingTokens\":\"address array which contains the list of securityTokens that use that module factory\"}},\"getModulesByType(uint8)\":{\"params\":{\"_moduleType\":\"Type of Module\"},\"returns\":{\"factories\":\"address array that contains the list of addresses of module factory contracts.\"}},\"getModulesByTypeAndToken(uint8,address)\":{\"params\":{\"_moduleType\":\"is the module type to look for\",\"_securityToken\":\"is the address of SecurityToken\"},\"returns\":{\"factories\":\"address array that contains the list of available addresses of module factory contracts.\"}},\"getTagsByType(uint8)\":{\"params\":{\"_moduleType\":\"is the module type\"},\"returns\":{\"factories\":\"corresponding list of module factories\",\"tags\":\"list of tags\"}},\"getTagsByTypeAndToken(uint8,address)\":{\"params\":{\"_moduleType\":\"is the module type\",\"_securityToken\":\"is the token\"},\"returns\":{\"factories\":\"corresponding list of module factories\",\"tags\":\"list of tags\"}},\"isCompatibleModule(address,address)\":{\"params\":{\"_moduleFactory\":\"is the address of the relevant module factory\",\"_securityToken\":\"is the address of the relevant security token\"},\"returns\":{\"isCompatible\":\"bool whether module and token are compatible\"}},\"isPaused()\":{\"returns\":{\"paused\":\"bool\"}},\"owner()\":{\"returns\":{\"ownerAddress\":\"address owner\"}},\"reclaimERC20(address)\":{\"params\":{\"_tokenContract\":\"The address of the token contract\"}},\"registerModule(address)\":{\"params\":{\"_moduleFactory\":\"is the address of the module factory to be registered\"}},\"removeModule(address)\":{\"params\":{\"_moduleFactory\":\"is the address of the module factory to be deleted\"}},\"transferOwnership(address)\":{\"details\":\"Allows the current owner to transfer control of the contract to a newOwner.\",\"params\":{\"_newOwner\":\"The address to transfer ownership to.\"}},\"unverifyModule(address)\":{\"params\":{\"_moduleFactory\":\"is the address of the module factory to be registered\"}},\"useModule(address)\":{\"params\":{\"_moduleFactory\":\"is the address of the relevant module factory\"}},\"useModule(address,bool)\":{\"params\":{\"_isUpgrade\":\"whether the use is part of an existing module upgrade\",\"_moduleFactory\":\"is the address of the relevant module factory\"}},\"verifyModule(address)\":{\"params\":{\"_moduleFactory\":\"is the address of the module factory to be registered\"}}},\"title\":\"Interface for the Polymath Module Registry contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"getAllModulesByType(uint8)\":{\"notice\":\"Returns the list of addresses of all Module Factory of a particular type\"},\"getFactoryDetails(address)\":{\"notice\":\"Returns the verified status, and reputation of the entered Module Factory\"},\"getModulesByType(uint8)\":{\"notice\":\"Returns the list of addresses of Module Factory of a particular type\"},\"getModulesByTypeAndToken(uint8,address)\":{\"notice\":\"Returns the list of available Module factory addresses of a particular type for a given token.\"},\"getTagsByType(uint8)\":{\"notice\":\"Returns all the tags related to the a module type which are valid for the given token\"},\"getTagsByTypeAndToken(uint8,address)\":{\"notice\":\"Returns all the tags related to the a module type which are valid for the given token\"},\"isCompatibleModule(address,address)\":{\"notice\":\"Check that a module and its factory are compatible\"},\"isPaused()\":{\"notice\":\"Check whether the contract operations is paused or not\"},\"owner()\":{\"notice\":\"Get the owner of the contract\"},\"pause()\":{\"notice\":\"Called by the owner to pause, triggers stopped state\"},\"reclaimERC20(address)\":{\"notice\":\"Reclaims all ERC20Basic compatible tokens\"},\"registerModule(address)\":{\"notice\":\"Called by the ModuleFactory owner to register new modules for SecurityToken to use\"},\"removeModule(address)\":{\"notice\":\"Called by the ModuleFactory owner or registry curator to delete a ModuleFactory\"},\"unpause()\":{\"notice\":\"Called by the owner to unpause, returns to normal state\"},\"unverifyModule(address)\":{\"notice\":\"Called by Polymath to unverify modules for SecurityToken to use.A module can not be used by an ST unless first approved/verified by Polymath(The only exception to this is that the author of the module is the owner of the ST - Only if enabled by the FeatureRegistry)\"},\"updateFromRegistry()\":{\"notice\":\"Use to get the latest contract address of the regstries\"},\"useModule(address)\":{\"notice\":\"Called by a security token (2.x) to notify the registry it is using a module\"},\"useModule(address,bool)\":{\"notice\":\"Called by a security token to notify the registry it is using a module\"},\"verifyModule(address)\":{\"notice\":\"Called by Polymath to verify modules for SecurityToken to use.A module can not be used by an ST unless first approved/verified by Polymath(The only exception to this is that the author of the module is the owner of the ST - Only if enabled by the FeatureRegistry)\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/IModuleRegistry.sol\":\"IModuleRegistry\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/IModuleRegistry.sol\":{\"keccak256\":\"0x416bcb4b3a4ff71bbbef152d1e7c2756c6719397805184715fc4a963f899cc3b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://04ba0541adb85fd985d7cedebdc42f139121a0c48b67d383f8472be8433c09cc\",\"dweb:/ipfs/QmPeKYdNCDSXNhuKgfawM7cNU5NN8SbDsXLApkZ5RWt7BU\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.19;\n\n/**\n * @title Interface for the Polymath Module Registry contract\n */\ninterface IModuleRegistry {\n\n    ///////////\n    // Events\n    //////////\n\n    // Emit when network becomes paused\n    event Pause(address account);\n    // Emit when network becomes unpaused\n    event Unpause(address account);\n    // Emit when Module is used by the SecurityToken\n    event ModuleUsed(address indexed _moduleFactory, address indexed _securityToken);\n    // Emit when the Module Factory gets registered on the ModuleRegistry contract\n    event ModuleRegistered(address indexed _moduleFactory, address indexed _owner);\n    // Emit when the module gets verified by Polymath\n    event ModuleVerified(address indexed _moduleFactory);\n    // Emit when the module gets unverified by Polymath or the factory owner\n    event ModuleUnverified(address indexed _moduleFactory);\n    // Emit when a ModuleFactory is removed by Polymath\n    event ModuleRemoved(address indexed _moduleFactory, address indexed _decisionMaker);\n    // Emit when ownership gets transferred\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\n\n\n    /**\n     * @notice Called by a security token (2.x) to notify the registry it is using a module\n     * @param _moduleFactory is the address of the relevant module factory\n     */\n    function useModule(address _moduleFactory) external;\n\n    /**\n     * @notice Called by a security token to notify the registry it is using a module\n     * @param _moduleFactory is the address of the relevant module factory\n     * @param _isUpgrade whether the use is part of an existing module upgrade\n     */\n    function useModule(address _moduleFactory, bool _isUpgrade) external;\n\n    /**\n     * @notice Called by the ModuleFactory owner to register new modules for SecurityToken to use\n     * @param _moduleFactory is the address of the module factory to be registered\n     */\n    function registerModule(address _moduleFactory) external;\n\n    /**\n     * @notice Called by the ModuleFactory owner or registry curator to delete a ModuleFactory\n     * @param _moduleFactory is the address of the module factory to be deleted\n     */\n    function removeModule(address _moduleFactory) external;\n\n    /**\n     * @notice Check that a module and its factory are compatible\n     * @param _moduleFactory is the address of the relevant module factory\n     * @param _securityToken is the address of the relevant security token\n     * @return isCompatible bool whether module and token are compatible\n     */\n    function isCompatibleModule(address _moduleFactory, address _securityToken) external view returns(bool isCompatible);\n\n    /**\n    * @notice Called by Polymath to verify modules for SecurityToken to use.\n    * @notice A module can not be used by an ST unless first approved/verified by Polymath\n    * @notice (The only exception to this is that the author of the module is the owner of the ST - Only if enabled by the FeatureRegistry)\n    * @param _moduleFactory is the address of the module factory to be registered\n    */\n    function verifyModule(address _moduleFactory) external;\n\n    /**\n    * @notice Called by Polymath to unverify modules for SecurityToken to use.\n    * @notice A module can not be used by an ST unless first approved/verified by Polymath\n    * @notice (The only exception to this is that the author of the module is the owner of the ST - Only if enabled by the FeatureRegistry)\n    * @param _moduleFactory is the address of the module factory to be registered\n    */\n    function unverifyModule(address _moduleFactory) external;\n\n    /**\n     * @notice Returns the verified status, and reputation of the entered Module Factory\n     * @param _factoryAddress is the address of the module factory\n     * @return isVerified bool indicating whether module factory is verified\n     * @return factoryOwner address of the factory owner\n     * @return usingTokens address array which contains the list of securityTokens that use that module factory\n     */\n    function getFactoryDetails(address _factoryAddress) external view returns(bool isVerified, address factoryOwner, address[] memory usingTokens);\n\n    /**\n     * @notice Returns all the tags related to the a module type which are valid for the given token\n     * @param _moduleType is the module type\n     * @param _securityToken is the token\n     * @return tags list of tags\n     * @return factories corresponding list of module factories\n     */\n    function getTagsByTypeAndToken(uint8 _moduleType, address _securityToken) external view returns(bytes32[] memory tags, address[] memory factories);\n\n    /**\n     * @notice Returns all the tags related to the a module type which are valid for the given token\n     * @param _moduleType is the module type\n     * @return tags list of tags\n     * @return factories corresponding list of module factories\n     */\n    function getTagsByType(uint8 _moduleType) external view returns(bytes32[] memory tags, address[] memory factories);\n\n    /**\n     * @notice Returns the list of addresses of all Module Factory of a particular type\n     * @param _moduleType Type of Module\n     * @return factories address array that contains the list of addresses of module factory contracts.\n     */\n    function getAllModulesByType(uint8 _moduleType) external view returns(address[] memory factories);\n    /**\n     * @notice Returns the list of addresses of Module Factory of a particular type\n     * @param _moduleType Type of Module\n     * @return factories address array that contains the list of addresses of module factory contracts.\n     */\n    function getModulesByType(uint8 _moduleType) external view returns(address[] memory factories);\n\n    /**\n     * @notice Returns the list of available Module factory addresses of a particular type for a given token.\n     * @param _moduleType is the module type to look for\n     * @param _securityToken is the address of SecurityToken\n     * @return factories address array that contains the list of available addresses of module factory contracts.\n     */\n    function getModulesByTypeAndToken(uint8 _moduleType, address _securityToken) external view returns(address[] memory factories);\n\n    /**\n     * @notice Use to get the latest contract address of the regstries\n     */\n    function updateFromRegistry() external;\n\n    /**\n     * @notice Get the owner of the contract\n     * @return ownerAddress address owner\n     */\n    function owner() external view returns(address ownerAddress);\n\n    /**\n     * @notice Check whether the contract operations is paused or not\n     * @return paused bool\n     */\n    function isPaused() external view returns(bool paused);\n\n    /**\n     * @notice Reclaims all ERC20Basic compatible tokens\n     * @param _tokenContract The address of the token contract\n     */\n    function reclaimERC20(address _tokenContract) external;\n\n    /**\n     * @notice Called by the owner to pause, triggers stopped state\n     */\n    function pause() external;\n\n    /**\n     * @notice Called by the owner to unpause, returns to normal state\n     */\n    function unpause() external;\n\n    /**\n    * @dev Allows the current owner to transfer control of the contract to a newOwner.\n    * @param _newOwner The address to transfer ownership to.\n    */\n    function transferOwnership(address _newOwner) external;\n\n}\n",
+  "sourcePath": "/Users/hanbin/opusm/st-mvp/contracts/interfaces/IModuleRegistry.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/interfaces/IModuleRegistry.sol",
+    "exportedSymbols": {
+      "IModuleRegistry": [
+        1765
+      ]
+    },
+    "id": 1766,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1571,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".19"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:10"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IModuleRegistry",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 1572,
+          "nodeType": "StructuredDocumentation",
+          "src": "57:69:10",
+          "text": " @title Interface for the Polymath Module Registry contract"
+        },
+        "fullyImplemented": false,
+        "id": 1765,
+        "linearizedBaseContracts": [
+          1765
+        ],
+        "name": "IModuleRegistry",
+        "nameLocation": "137:15:10",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "eventSelector": "5ee71a369c8672edded508e624ffc9257fa1ae6886ef32905c18e60196bca399",
+            "id": 1576,
+            "name": "Pause",
+            "nameLocation": "252:5:10",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 1575,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1574,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "266:7:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1576,
+                  "src": "258:15:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1573,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "258:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "257:17:10"
+            },
+            "src": "246:29:10"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "aeb196d352664784d1900b0e7414a8face7d29f4dae8c4b0cf68ed477423bbf4",
+            "id": 1580,
+            "name": "Unpause",
+            "nameLocation": "328:7:10",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 1579,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1578,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "344:7:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1580,
+                  "src": "336:15:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1577,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "336:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "335:17:10"
+            },
+            "src": "322:31:10"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "fd0013c5b822aafcc05b8cfdd6dfa336f40c31714b8bef8f2520e7036b9f0798",
+            "id": 1586,
+            "name": "ModuleUsed",
+            "nameLocation": "417:10:10",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 1585,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1582,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_moduleFactory",
+                  "nameLocation": "444:14:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1586,
+                  "src": "428:30:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1581,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "428:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1584,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_securityToken",
+                  "nameLocation": "476:14:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1586,
+                  "src": "460:30:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1583,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "460:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "427:64:10"
+            },
+            "src": "411:81:10"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "49220d7268f6ac850e2f0d39ce956e56f086a18cfda1383c05f9c859fdef9012",
+            "id": 1592,
+            "name": "ModuleRegistered",
+            "nameLocation": "586:16:10",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 1591,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1588,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_moduleFactory",
+                  "nameLocation": "619:14:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1592,
+                  "src": "603:30:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1587,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "603:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1590,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_owner",
+                  "nameLocation": "651:6:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1592,
+                  "src": "635:22:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1589,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "635:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "602:56:10"
+            },
+            "src": "580:79:10"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "6b4f33594281f0d3c33cb4efc71c1d349cc9614e44a6d44cf1f349e801ed9fd7",
+            "id": 1596,
+            "name": "ModuleVerified",
+            "nameLocation": "724:14:10",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 1595,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1594,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_moduleFactory",
+                  "nameLocation": "755:14:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1596,
+                  "src": "739:30:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1593,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "739:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "738:32:10"
+            },
+            "src": "718:53:10"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "bc7ce5f0f210af950fe3ce169a29ea85d52de86be246a738b2b5c11f6762b5f0",
+            "id": 1600,
+            "name": "ModuleUnverified",
+            "nameLocation": "859:16:10",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 1599,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1598,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_moduleFactory",
+                  "nameLocation": "892:14:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1600,
+                  "src": "876:30:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1597,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "876:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "875:32:10"
+            },
+            "src": "853:55:10"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "d66772358582078947c11fa70e2860b3ffa915277e6181a4aa293072cb57ed3c",
+            "id": 1606,
+            "name": "ModuleRemoved",
+            "nameLocation": "975:13:10",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 1605,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1602,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_moduleFactory",
+                  "nameLocation": "1005:14:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1606,
+                  "src": "989:30:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1601,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "989:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1604,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_decisionMaker",
+                  "nameLocation": "1037:14:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1606,
+                  "src": "1021:30:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1603,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1021:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "988:64:10"
+            },
+            "src": "969:84:10"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+            "id": 1612,
+            "name": "OwnershipTransferred",
+            "nameLocation": "1108:20:10",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 1611,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1608,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "previousOwner",
+                  "nameLocation": "1145:13:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1612,
+                  "src": "1129:29:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1607,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1129:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1610,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "newOwner",
+                  "nameLocation": "1176:8:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1612,
+                  "src": "1160:24:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1609,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1160:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1128:57:10"
+            },
+            "src": "1102:84:10"
+          },
+          {
+            "documentation": {
+              "id": 1613,
+              "nodeType": "StructuredDocumentation",
+              "src": "1193:178:10",
+              "text": " @notice Called by a security token (2.x) to notify the registry it is using a module\n @param _moduleFactory is the address of the relevant module factory"
+            },
+            "functionSelector": "dc659907",
+            "id": 1618,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "useModule",
+            "nameLocation": "1385:9:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1616,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1615,
+                  "mutability": "mutable",
+                  "name": "_moduleFactory",
+                  "nameLocation": "1403:14:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1618,
+                  "src": "1395:22:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1614,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1395:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1394:24:10"
+            },
+            "returnParameters": {
+              "id": 1617,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1427:0:10"
+            },
+            "scope": 1765,
+            "src": "1376:52:10",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1619,
+              "nodeType": "StructuredDocumentation",
+              "src": "1434:251:10",
+              "text": " @notice Called by a security token to notify the registry it is using a module\n @param _moduleFactory is the address of the relevant module factory\n @param _isUpgrade whether the use is part of an existing module upgrade"
+            },
+            "functionSelector": "36ef22ce",
+            "id": 1626,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "useModule",
+            "nameLocation": "1699:9:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1624,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1621,
+                  "mutability": "mutable",
+                  "name": "_moduleFactory",
+                  "nameLocation": "1717:14:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1626,
+                  "src": "1709:22:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1620,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1709:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1623,
+                  "mutability": "mutable",
+                  "name": "_isUpgrade",
+                  "nameLocation": "1738:10:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1626,
+                  "src": "1733:15:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 1622,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1733:4:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1708:41:10"
+            },
+            "returnParameters": {
+              "id": 1625,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1758:0:10"
+            },
+            "scope": 1765,
+            "src": "1690:69:10",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1627,
+              "nodeType": "StructuredDocumentation",
+              "src": "1765:192:10",
+              "text": " @notice Called by the ModuleFactory owner to register new modules for SecurityToken to use\n @param _moduleFactory is the address of the module factory to be registered"
+            },
+            "functionSelector": "ad64ae4b",
+            "id": 1632,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "registerModule",
+            "nameLocation": "1971:14:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1630,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1629,
+                  "mutability": "mutable",
+                  "name": "_moduleFactory",
+                  "nameLocation": "1994:14:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1632,
+                  "src": "1986:22:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1628,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1986:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1985:24:10"
+            },
+            "returnParameters": {
+              "id": 1631,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2018:0:10"
+            },
+            "scope": 1765,
+            "src": "1962:57:10",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1633,
+              "nodeType": "StructuredDocumentation",
+              "src": "2025:186:10",
+              "text": " @notice Called by the ModuleFactory owner or registry curator to delete a ModuleFactory\n @param _moduleFactory is the address of the module factory to be deleted"
+            },
+            "functionSelector": "a0632461",
+            "id": 1638,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "removeModule",
+            "nameLocation": "2225:12:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1636,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1635,
+                  "mutability": "mutable",
+                  "name": "_moduleFactory",
+                  "nameLocation": "2246:14:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1638,
+                  "src": "2238:22:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1634,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2238:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2237:24:10"
+            },
+            "returnParameters": {
+              "id": 1637,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2270:0:10"
+            },
+            "scope": 1765,
+            "src": "2216:55:10",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1639,
+              "nodeType": "StructuredDocumentation",
+              "src": "2277:300:10",
+              "text": " @notice Check that a module and its factory are compatible\n @param _moduleFactory is the address of the relevant module factory\n @param _securityToken is the address of the relevant security token\n @return isCompatible bool whether module and token are compatible"
+            },
+            "functionSelector": "223a6580",
+            "id": 1648,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isCompatibleModule",
+            "nameLocation": "2591:18:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1644,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1641,
+                  "mutability": "mutable",
+                  "name": "_moduleFactory",
+                  "nameLocation": "2618:14:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1648,
+                  "src": "2610:22:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1640,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2610:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1643,
+                  "mutability": "mutable",
+                  "name": "_securityToken",
+                  "nameLocation": "2642:14:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1648,
+                  "src": "2634:22:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1642,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2634:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2609:48:10"
+            },
+            "returnParameters": {
+              "id": 1647,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1646,
+                  "mutability": "mutable",
+                  "name": "isCompatible",
+                  "nameLocation": "2685:12:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1648,
+                  "src": "2680:17:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 1645,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2680:4:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2679:19:10"
+            },
+            "scope": 1765,
+            "src": "2582:117:10",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1649,
+              "nodeType": "StructuredDocumentation",
+              "src": "2705:400:10",
+              "text": " @notice Called by Polymath to verify modules for SecurityToken to use.\n @notice A module can not be used by an ST unless first approved/verified by Polymath\n @notice (The only exception to this is that the author of the module is the owner of the ST - Only if enabled by the FeatureRegistry)\n @param _moduleFactory is the address of the module factory to be registered"
+            },
+            "functionSelector": "30d88e1d",
+            "id": 1654,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "verifyModule",
+            "nameLocation": "3119:12:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1652,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1651,
+                  "mutability": "mutable",
+                  "name": "_moduleFactory",
+                  "nameLocation": "3140:14:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1654,
+                  "src": "3132:22:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1650,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3132:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3131:24:10"
+            },
+            "returnParameters": {
+              "id": 1653,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3164:0:10"
+            },
+            "scope": 1765,
+            "src": "3110:55:10",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1655,
+              "nodeType": "StructuredDocumentation",
+              "src": "3171:402:10",
+              "text": " @notice Called by Polymath to unverify modules for SecurityToken to use.\n @notice A module can not be used by an ST unless first approved/verified by Polymath\n @notice (The only exception to this is that the author of the module is the owner of the ST - Only if enabled by the FeatureRegistry)\n @param _moduleFactory is the address of the module factory to be registered"
+            },
+            "functionSelector": "cf5f591d",
+            "id": 1660,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "unverifyModule",
+            "nameLocation": "3587:14:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1658,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1657,
+                  "mutability": "mutable",
+                  "name": "_moduleFactory",
+                  "nameLocation": "3610:14:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1660,
+                  "src": "3602:22:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1656,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3602:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3601:24:10"
+            },
+            "returnParameters": {
+              "id": 1659,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3634:0:10"
+            },
+            "scope": 1765,
+            "src": "3578:57:10",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1661,
+              "nodeType": "StructuredDocumentation",
+              "src": "3641:413:10",
+              "text": " @notice Returns the verified status, and reputation of the entered Module Factory\n @param _factoryAddress is the address of the module factory\n @return isVerified bool indicating whether module factory is verified\n @return factoryOwner address of the factory owner\n @return usingTokens address array which contains the list of securityTokens that use that module factory"
+            },
+            "functionSelector": "6001f434",
+            "id": 1673,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getFactoryDetails",
+            "nameLocation": "4068:17:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1664,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1663,
+                  "mutability": "mutable",
+                  "name": "_factoryAddress",
+                  "nameLocation": "4094:15:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1673,
+                  "src": "4086:23:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1662,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4086:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4085:25:10"
+            },
+            "returnParameters": {
+              "id": 1672,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1666,
+                  "mutability": "mutable",
+                  "name": "isVerified",
+                  "nameLocation": "4138:10:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1673,
+                  "src": "4133:15:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 1665,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4133:4:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1668,
+                  "mutability": "mutable",
+                  "name": "factoryOwner",
+                  "nameLocation": "4158:12:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1673,
+                  "src": "4150:20:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1667,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4150:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1671,
+                  "mutability": "mutable",
+                  "name": "usingTokens",
+                  "nameLocation": "4189:11:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1673,
+                  "src": "4172:28:10",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1669,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "4172:7:10",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 1670,
+                    "nodeType": "ArrayTypeName",
+                    "src": "4172:9:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4132:69:10"
+            },
+            "scope": 1765,
+            "src": "4059:143:10",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1674,
+              "nodeType": "StructuredDocumentation",
+              "src": "4208:296:10",
+              "text": " @notice Returns all the tags related to the a module type which are valid for the given token\n @param _moduleType is the module type\n @param _securityToken is the token\n @return tags list of tags\n @return factories corresponding list of module factories"
+            },
+            "functionSelector": "1a83bff0",
+            "id": 1687,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTagsByTypeAndToken",
+            "nameLocation": "4518:21:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1679,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1676,
+                  "mutability": "mutable",
+                  "name": "_moduleType",
+                  "nameLocation": "4546:11:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1687,
+                  "src": "4540:17:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 1675,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4540:5:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1678,
+                  "mutability": "mutable",
+                  "name": "_securityToken",
+                  "nameLocation": "4567:14:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1687,
+                  "src": "4559:22:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1677,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4559:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4539:43:10"
+            },
+            "returnParameters": {
+              "id": 1686,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1682,
+                  "mutability": "mutable",
+                  "name": "tags",
+                  "nameLocation": "4622:4:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1687,
+                  "src": "4605:21:10",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1680,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "4605:7:10",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 1681,
+                    "nodeType": "ArrayTypeName",
+                    "src": "4605:9:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1685,
+                  "mutability": "mutable",
+                  "name": "factories",
+                  "nameLocation": "4645:9:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1687,
+                  "src": "4628:26:10",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1683,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "4628:7:10",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 1684,
+                    "nodeType": "ArrayTypeName",
+                    "src": "4628:9:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4604:51:10"
+            },
+            "scope": 1765,
+            "src": "4509:147:10",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1688,
+              "nodeType": "StructuredDocumentation",
+              "src": "4662:254:10",
+              "text": " @notice Returns all the tags related to the a module type which are valid for the given token\n @param _moduleType is the module type\n @return tags list of tags\n @return factories corresponding list of module factories"
+            },
+            "functionSelector": "4ac24a9a",
+            "id": 1699,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTagsByType",
+            "nameLocation": "4930:13:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1691,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1690,
+                  "mutability": "mutable",
+                  "name": "_moduleType",
+                  "nameLocation": "4950:11:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1699,
+                  "src": "4944:17:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 1689,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4944:5:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4943:19:10"
+            },
+            "returnParameters": {
+              "id": 1698,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1694,
+                  "mutability": "mutable",
+                  "name": "tags",
+                  "nameLocation": "5002:4:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1699,
+                  "src": "4985:21:10",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1692,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "4985:7:10",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 1693,
+                    "nodeType": "ArrayTypeName",
+                    "src": "4985:9:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1697,
+                  "mutability": "mutable",
+                  "name": "factories",
+                  "nameLocation": "5025:9:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1699,
+                  "src": "5008:26:10",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1695,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "5008:7:10",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 1696,
+                    "nodeType": "ArrayTypeName",
+                    "src": "5008:9:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4984:51:10"
+            },
+            "scope": 1765,
+            "src": "4921:115:10",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1700,
+              "nodeType": "StructuredDocumentation",
+              "src": "5042:244:10",
+              "text": " @notice Returns the list of addresses of all Module Factory of a particular type\n @param _moduleType Type of Module\n @return factories address array that contains the list of addresses of module factory contracts."
+            },
+            "functionSelector": "a1fe85dc",
+            "id": 1708,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAllModulesByType",
+            "nameLocation": "5300:19:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1703,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1702,
+                  "mutability": "mutable",
+                  "name": "_moduleType",
+                  "nameLocation": "5326:11:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1708,
+                  "src": "5320:17:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 1701,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5320:5:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5319:19:10"
+            },
+            "returnParameters": {
+              "id": 1707,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1706,
+                  "mutability": "mutable",
+                  "name": "factories",
+                  "nameLocation": "5378:9:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1708,
+                  "src": "5361:26:10",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1704,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "5361:7:10",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 1705,
+                    "nodeType": "ArrayTypeName",
+                    "src": "5361:9:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5360:28:10"
+            },
+            "scope": 1765,
+            "src": "5291:98:10",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1709,
+              "nodeType": "StructuredDocumentation",
+              "src": "5394:240:10",
+              "text": " @notice Returns the list of addresses of Module Factory of a particular type\n @param _moduleType Type of Module\n @return factories address array that contains the list of addresses of module factory contracts."
+            },
+            "functionSelector": "ac90b422",
+            "id": 1717,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getModulesByType",
+            "nameLocation": "5648:16:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1712,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1711,
+                  "mutability": "mutable",
+                  "name": "_moduleType",
+                  "nameLocation": "5671:11:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1717,
+                  "src": "5665:17:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 1710,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5665:5:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5664:19:10"
+            },
+            "returnParameters": {
+              "id": 1716,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1715,
+                  "mutability": "mutable",
+                  "name": "factories",
+                  "nameLocation": "5723:9:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1717,
+                  "src": "5706:26:10",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1713,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "5706:7:10",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 1714,
+                    "nodeType": "ArrayTypeName",
+                    "src": "5706:9:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5705:28:10"
+            },
+            "scope": 1765,
+            "src": "5639:95:10",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1718,
+              "nodeType": "StructuredDocumentation",
+              "src": "5740:353:10",
+              "text": " @notice Returns the list of available Module factory addresses of a particular type for a given token.\n @param _moduleType is the module type to look for\n @param _securityToken is the address of SecurityToken\n @return factories address array that contains the list of available addresses of module factory contracts."
+            },
+            "functionSelector": "ea393b75",
+            "id": 1728,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getModulesByTypeAndToken",
+            "nameLocation": "6107:24:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1723,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1720,
+                  "mutability": "mutable",
+                  "name": "_moduleType",
+                  "nameLocation": "6138:11:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1728,
+                  "src": "6132:17:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 1719,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6132:5:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1722,
+                  "mutability": "mutable",
+                  "name": "_securityToken",
+                  "nameLocation": "6159:14:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1728,
+                  "src": "6151:22:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1721,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6151:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6131:43:10"
+            },
+            "returnParameters": {
+              "id": 1727,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1726,
+                  "mutability": "mutable",
+                  "name": "factories",
+                  "nameLocation": "6214:9:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1728,
+                  "src": "6197:26:10",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1724,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "6197:7:10",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 1725,
+                    "nodeType": "ArrayTypeName",
+                    "src": "6197:9:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6196:28:10"
+            },
+            "scope": 1765,
+            "src": "6098:127:10",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1729,
+              "nodeType": "StructuredDocumentation",
+              "src": "6231:82:10",
+              "text": " @notice Use to get the latest contract address of the regstries"
+            },
+            "functionSelector": "f433262f",
+            "id": 1732,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "updateFromRegistry",
+            "nameLocation": "6327:18:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1730,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "6345:2:10"
+            },
+            "returnParameters": {
+              "id": 1731,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "6356:0:10"
+            },
+            "scope": 1765,
+            "src": "6318:39:10",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1733,
+              "nodeType": "StructuredDocumentation",
+              "src": "6363:98:10",
+              "text": " @notice Get the owner of the contract\n @return ownerAddress address owner"
+            },
+            "functionSelector": "8da5cb5b",
+            "id": 1738,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "owner",
+            "nameLocation": "6475:5:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1734,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "6480:2:10"
+            },
+            "returnParameters": {
+              "id": 1737,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1736,
+                  "mutability": "mutable",
+                  "name": "ownerAddress",
+                  "nameLocation": "6513:12:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1738,
+                  "src": "6505:20:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1735,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6505:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6504:22:10"
+            },
+            "scope": 1765,
+            "src": "6466:61:10",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1739,
+              "nodeType": "StructuredDocumentation",
+              "src": "6533:108:10",
+              "text": " @notice Check whether the contract operations is paused or not\n @return paused bool"
+            },
+            "functionSelector": "b187bd26",
+            "id": 1744,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isPaused",
+            "nameLocation": "6655:8:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1740,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "6663:2:10"
+            },
+            "returnParameters": {
+              "id": 1743,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1742,
+                  "mutability": "mutable",
+                  "name": "paused",
+                  "nameLocation": "6693:6:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1744,
+                  "src": "6688:11:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 1741,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6688:4:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6687:13:10"
+            },
+            "scope": 1765,
+            "src": "6646:55:10",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1745,
+              "nodeType": "StructuredDocumentation",
+              "src": "6707:131:10",
+              "text": " @notice Reclaims all ERC20Basic compatible tokens\n @param _tokenContract The address of the token contract"
+            },
+            "functionSelector": "8905fd4f",
+            "id": 1750,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "reclaimERC20",
+            "nameLocation": "6852:12:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1748,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1747,
+                  "mutability": "mutable",
+                  "name": "_tokenContract",
+                  "nameLocation": "6873:14:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1750,
+                  "src": "6865:22:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1746,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6865:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6864:24:10"
+            },
+            "returnParameters": {
+              "id": 1749,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "6897:0:10"
+            },
+            "scope": 1765,
+            "src": "6843:55:10",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1751,
+              "nodeType": "StructuredDocumentation",
+              "src": "6904:79:10",
+              "text": " @notice Called by the owner to pause, triggers stopped state"
+            },
+            "functionSelector": "8456cb59",
+            "id": 1754,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "pause",
+            "nameLocation": "6997:5:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1752,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "7002:2:10"
+            },
+            "returnParameters": {
+              "id": 1753,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "7013:0:10"
+            },
+            "scope": 1765,
+            "src": "6988:26:10",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1755,
+              "nodeType": "StructuredDocumentation",
+              "src": "7020:82:10",
+              "text": " @notice Called by the owner to unpause, returns to normal state"
+            },
+            "functionSelector": "3f4ba83a",
+            "id": 1758,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "unpause",
+            "nameLocation": "7116:7:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1756,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "7123:2:10"
+            },
+            "returnParameters": {
+              "id": 1757,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "7134:0:10"
+            },
+            "scope": 1765,
+            "src": "7107:28:10",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1759,
+              "nodeType": "StructuredDocumentation",
+              "src": "7141:158:10",
+              "text": " @dev Allows the current owner to transfer control of the contract to a newOwner.\n @param _newOwner The address to transfer ownership to."
+            },
+            "functionSelector": "f2fde38b",
+            "id": 1764,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "transferOwnership",
+            "nameLocation": "7313:17:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1762,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1761,
+                  "mutability": "mutable",
+                  "name": "_newOwner",
+                  "nameLocation": "7339:9:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1764,
+                  "src": "7331:17:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1760,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "7331:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "7330:19:10"
+            },
+            "returnParameters": {
+              "id": 1763,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "7358:0:10"
+            },
+            "scope": 1765,
+            "src": "7304:55:10",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1766,
+        "src": "127:7235:10",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:7331:10"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.19+commit.7dd6d404.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.10",
+  "updatedAt": "2023-07-24T08:15:11.947Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "getAllModulesByType(uint8)": {
+        "params": {
+          "_moduleType": "Type of Module"
+        },
+        "returns": {
+          "factories": "address array that contains the list of addresses of module factory contracts."
+        }
+      },
+      "getFactoryDetails(address)": {
+        "params": {
+          "_factoryAddress": "is the address of the module factory"
+        },
+        "returns": {
+          "factoryOwner": "address of the factory owner",
+          "isVerified": "bool indicating whether module factory is verified",
+          "usingTokens": "address array which contains the list of securityTokens that use that module factory"
+        }
+      },
+      "getModulesByType(uint8)": {
+        "params": {
+          "_moduleType": "Type of Module"
+        },
+        "returns": {
+          "factories": "address array that contains the list of addresses of module factory contracts."
+        }
+      },
+      "getModulesByTypeAndToken(uint8,address)": {
+        "params": {
+          "_moduleType": "is the module type to look for",
+          "_securityToken": "is the address of SecurityToken"
+        },
+        "returns": {
+          "factories": "address array that contains the list of available addresses of module factory contracts."
+        }
+      },
+      "getTagsByType(uint8)": {
+        "params": {
+          "_moduleType": "is the module type"
+        },
+        "returns": {
+          "factories": "corresponding list of module factories",
+          "tags": "list of tags"
+        }
+      },
+      "getTagsByTypeAndToken(uint8,address)": {
+        "params": {
+          "_moduleType": "is the module type",
+          "_securityToken": "is the token"
+        },
+        "returns": {
+          "factories": "corresponding list of module factories",
+          "tags": "list of tags"
+        }
+      },
+      "isCompatibleModule(address,address)": {
+        "params": {
+          "_moduleFactory": "is the address of the relevant module factory",
+          "_securityToken": "is the address of the relevant security token"
+        },
+        "returns": {
+          "isCompatible": "bool whether module and token are compatible"
+        }
+      },
+      "isPaused()": {
+        "returns": {
+          "paused": "bool"
+        }
+      },
+      "owner()": {
+        "returns": {
+          "ownerAddress": "address owner"
+        }
+      },
+      "reclaimERC20(address)": {
+        "params": {
+          "_tokenContract": "The address of the token contract"
+        }
+      },
+      "registerModule(address)": {
+        "params": {
+          "_moduleFactory": "is the address of the module factory to be registered"
+        }
+      },
+      "removeModule(address)": {
+        "params": {
+          "_moduleFactory": "is the address of the module factory to be deleted"
+        }
+      },
+      "transferOwnership(address)": {
+        "details": "Allows the current owner to transfer control of the contract to a newOwner.",
+        "params": {
+          "_newOwner": "The address to transfer ownership to."
+        }
+      },
+      "unverifyModule(address)": {
+        "params": {
+          "_moduleFactory": "is the address of the module factory to be registered"
+        }
+      },
+      "useModule(address)": {
+        "params": {
+          "_moduleFactory": "is the address of the relevant module factory"
+        }
+      },
+      "useModule(address,bool)": {
+        "params": {
+          "_isUpgrade": "whether the use is part of an existing module upgrade",
+          "_moduleFactory": "is the address of the relevant module factory"
+        }
+      },
+      "verifyModule(address)": {
+        "params": {
+          "_moduleFactory": "is the address of the module factory to be registered"
+        }
+      }
+    },
+    "title": "Interface for the Polymath Module Registry contract",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "getAllModulesByType(uint8)": {
+        "notice": "Returns the list of addresses of all Module Factory of a particular type"
+      },
+      "getFactoryDetails(address)": {
+        "notice": "Returns the verified status, and reputation of the entered Module Factory"
+      },
+      "getModulesByType(uint8)": {
+        "notice": "Returns the list of addresses of Module Factory of a particular type"
+      },
+      "getModulesByTypeAndToken(uint8,address)": {
+        "notice": "Returns the list of available Module factory addresses of a particular type for a given token."
+      },
+      "getTagsByType(uint8)": {
+        "notice": "Returns all the tags related to the a module type which are valid for the given token"
+      },
+      "getTagsByTypeAndToken(uint8,address)": {
+        "notice": "Returns all the tags related to the a module type which are valid for the given token"
+      },
+      "isCompatibleModule(address,address)": {
+        "notice": "Check that a module and its factory are compatible"
+      },
+      "isPaused()": {
+        "notice": "Check whether the contract operations is paused or not"
+      },
+      "owner()": {
+        "notice": "Get the owner of the contract"
+      },
+      "pause()": {
+        "notice": "Called by the owner to pause, triggers stopped state"
+      },
+      "reclaimERC20(address)": {
+        "notice": "Reclaims all ERC20Basic compatible tokens"
+      },
+      "registerModule(address)": {
+        "notice": "Called by the ModuleFactory owner to register new modules for SecurityToken to use"
+      },
+      "removeModule(address)": {
+        "notice": "Called by the ModuleFactory owner or registry curator to delete a ModuleFactory"
+      },
+      "unpause()": {
+        "notice": "Called by the owner to unpause, returns to normal state"
+      },
+      "unverifyModule(address)": {
+        "notice": "Called by Polymath to unverify modules for SecurityToken to use.A module can not be used by an ST unless first approved/verified by Polymath(The only exception to this is that the author of the module is the owner of the ST - Only if enabled by the FeatureRegistry)"
+      },
+      "updateFromRegistry()": {
+        "notice": "Use to get the latest contract address of the regstries"
+      },
+      "useModule(address)": {
+        "notice": "Called by a security token (2.x) to notify the registry it is using a module"
+      },
+      "useModule(address,bool)": {
+        "notice": "Called by a security token to notify the registry it is using a module"
+      },
+      "verifyModule(address)": {
+        "notice": "Called by Polymath to verify modules for SecurityToken to use.A module can not be used by an ST unless first approved/verified by Polymath(The only exception to this is that the author of the module is the owner of the ST - Only if enabled by the FeatureRegistry)"
+      }
+    },
+    "version": 1
+  }
+}

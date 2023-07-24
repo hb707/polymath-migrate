@@ -1,0 +1,386 @@
+{
+  "contractName": "IOracle",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "getCurrencyAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "currency",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getCurrencySymbol",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "symbol",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getCurrencyDenominated",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "denominatedCurrency",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getCurrencyAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"currency\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCurrencyDenominated\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"denominatedCurrency\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCurrencySymbol\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"symbol\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"getCurrencyAddress()\":{\"notice\":\"Returns address of oracle currency (0x0 for ETH)\"},\"getCurrencyDenominated()\":{\"notice\":\"Returns denomination of price\"},\"getCurrencySymbol()\":{\"notice\":\"Returns symbol of oracle currency (0x0 for ETH)\"},\"getPrice()\":{\"notice\":\"Returns price - should throw if not valid\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/IOracle.sol\":\"IOracle\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/IOracle.sol\":{\"keccak256\":\"0x06f0d93018147f182517099ccae357e8499bf42a4c1f5f6a7fc1fcce92c7c6fc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e41c7fe00597df2b6f42423c043f6f72b5ff6dbcdb6cb2925295ca85b4e9c1de\",\"dweb:/ipfs/QmNUDPyMvumSZgNKQ8mf5hjhUKWDtxBs9A11kTZXAvrayx\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.19;\n\ninterface IOracle {\n    /**\n    * @notice Returns address of oracle currency (0x0 for ETH)\n    */\n    function getCurrencyAddress() external view returns(address currency);\n\n    /**\n    * @notice Returns symbol of oracle currency (0x0 for ETH)\n    */\n    function getCurrencySymbol() external view returns(bytes32 symbol);\n\n    /**\n    * @notice Returns denomination of price\n    */\n    function getCurrencyDenominated() external view returns(bytes32 denominatedCurrency);\n\n    /**\n    * @notice Returns price - should throw if not valid\n    */\n    function getPrice() external returns(uint256 price);\n\n}\n",
+  "sourcePath": "/Users/hanbin/opusm/st-mvp/contracts/interfaces/IOracle.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/interfaces/IOracle.sol",
+    "exportedSymbols": {
+      "IOracle": [
+        1792
+      ]
+    },
+    "id": 1793,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1767,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".19"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:11"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IOracle",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 1792,
+        "linearizedBaseContracts": [
+          1792
+        ],
+        "name": "IOracle",
+        "nameLocation": "67:7:11",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 1768,
+              "nodeType": "StructuredDocumentation",
+              "src": "81:73:11",
+              "text": " @notice Returns address of oracle currency (0x0 for ETH)"
+            },
+            "functionSelector": "bfe0c27e",
+            "id": 1773,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCurrencyAddress",
+            "nameLocation": "168:18:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1769,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "186:2:11"
+            },
+            "returnParameters": {
+              "id": 1772,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1771,
+                  "mutability": "mutable",
+                  "name": "currency",
+                  "nameLocation": "219:8:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1773,
+                  "src": "211:16:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1770,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "211:7:11",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "210:18:11"
+            },
+            "scope": 1792,
+            "src": "159:70:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1774,
+              "nodeType": "StructuredDocumentation",
+              "src": "235:72:11",
+              "text": " @notice Returns symbol of oracle currency (0x0 for ETH)"
+            },
+            "functionSelector": "5dfc09a4",
+            "id": 1779,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCurrencySymbol",
+            "nameLocation": "321:17:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1775,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "338:2:11"
+            },
+            "returnParameters": {
+              "id": 1778,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1777,
+                  "mutability": "mutable",
+                  "name": "symbol",
+                  "nameLocation": "371:6:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1779,
+                  "src": "363:14:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1776,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "363:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "362:16:11"
+            },
+            "scope": 1792,
+            "src": "312:67:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1780,
+              "nodeType": "StructuredDocumentation",
+              "src": "385:54:11",
+              "text": " @notice Returns denomination of price"
+            },
+            "functionSelector": "d2654219",
+            "id": 1785,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCurrencyDenominated",
+            "nameLocation": "453:22:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1781,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "475:2:11"
+            },
+            "returnParameters": {
+              "id": 1784,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1783,
+                  "mutability": "mutable",
+                  "name": "denominatedCurrency",
+                  "nameLocation": "508:19:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1785,
+                  "src": "500:27:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1782,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "500:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "499:29:11"
+            },
+            "scope": 1792,
+            "src": "444:85:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1786,
+              "nodeType": "StructuredDocumentation",
+              "src": "535:66:11",
+              "text": " @notice Returns price - should throw if not valid"
+            },
+            "functionSelector": "98d5fdca",
+            "id": 1791,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPrice",
+            "nameLocation": "615:8:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1787,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "623:2:11"
+            },
+            "returnParameters": {
+              "id": 1790,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1789,
+                  "mutability": "mutable",
+                  "name": "price",
+                  "nameLocation": "651:5:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1791,
+                  "src": "643:13:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1788,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "643:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "642:15:11"
+            },
+            "scope": 1792,
+            "src": "606:52:11",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1793,
+        "src": "57:604:11",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:630:11"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.19+commit.7dd6d404.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.10",
+  "updatedAt": "2023-07-24T08:15:11.948Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "getCurrencyAddress()": {
+        "notice": "Returns address of oracle currency (0x0 for ETH)"
+      },
+      "getCurrencyDenominated()": {
+        "notice": "Returns denomination of price"
+      },
+      "getCurrencySymbol()": {
+        "notice": "Returns symbol of oracle currency (0x0 for ETH)"
+      },
+      "getPrice()": {
+        "notice": "Returns price - should throw if not valid"
+      }
+    },
+    "version": 1
+  }
+}

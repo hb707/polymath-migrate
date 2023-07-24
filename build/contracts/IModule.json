@@ -1,0 +1,247 @@
+{
+  "contractName": "IModule",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "getInitFunction",
+      "outputs": [
+        {
+          "internalType": "bytes4",
+          "name": "initFunction",
+          "type": "bytes4"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getPermissions",
+      "outputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "permissions",
+          "type": "bytes32[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getInitFunction\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"initFunction\",\"type\":\"bytes4\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getPermissions\",\"outputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"permissions\",\"type\":\"bytes32[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"title\":\"Interface that every module contract should implement\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"getInitFunction()\":{\"notice\":\"This function returns the signature of configure function\"},\"getPermissions()\":{\"notice\":\"Return the permission flags that are associated with a module\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/IModule.sol\":\"IModule\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/IModule.sol\":{\"keccak256\":\"0x66cd9a82c7a01bf0cd6224864cf457ef3810d960b91625e4c3685471efdb892e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://84fcc104899d8914ac1859596dadd61f733f3d7232736d2bd7a8ff9f2905058b\",\"dweb:/ipfs/QmbfipamKi1bxXFPDFpTGtwFACe7bUCgifthJUyLL45aLD\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.19;\n\n/**\n * @title Interface that every module contract should implement\n */\ninterface IModule {\n    /**\n     * @notice This function returns the signature of configure function\n     */\n    function getInitFunction() external pure returns(bytes4 initFunction);\n\n    /**\n     * @notice Return the permission flags that are associated with a module\n     */\n    function getPermissions() external view returns(bytes32[] memory permissions);\n\n}\n",
+  "sourcePath": "/Users/hanbin/opusm/st-mvp/contracts/interfaces/IModule.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/interfaces/IModule.sol",
+    "exportedSymbols": {
+      "IModule": [
+        1410
+      ]
+    },
+    "id": 1411,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1395,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".19"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:8"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IModule",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 1396,
+          "nodeType": "StructuredDocumentation",
+          "src": "57:71:8",
+          "text": " @title Interface that every module contract should implement"
+        },
+        "fullyImplemented": false,
+        "id": 1410,
+        "linearizedBaseContracts": [
+          1410
+        ],
+        "name": "IModule",
+        "nameLocation": "139:7:8",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 1397,
+              "nodeType": "StructuredDocumentation",
+              "src": "153:84:8",
+              "text": " @notice This function returns the signature of configure function"
+            },
+            "functionSelector": "1613ec9d",
+            "id": 1402,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getInitFunction",
+            "nameLocation": "251:15:8",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1398,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "266:2:8"
+            },
+            "returnParameters": {
+              "id": 1401,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1400,
+                  "mutability": "mutable",
+                  "name": "initFunction",
+                  "nameLocation": "298:12:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1402,
+                  "src": "291:19:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  },
+                  "typeName": {
+                    "id": 1399,
+                    "name": "bytes4",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "291:6:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "290:21:8"
+            },
+            "scope": 1410,
+            "src": "242:70:8",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1403,
+              "nodeType": "StructuredDocumentation",
+              "src": "318:88:8",
+              "text": " @notice Return the permission flags that are associated with a module"
+            },
+            "functionSelector": "c3a07df6",
+            "id": 1409,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPermissions",
+            "nameLocation": "420:14:8",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1404,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "434:2:8"
+            },
+            "returnParameters": {
+              "id": 1408,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1407,
+                  "mutability": "mutable",
+                  "name": "permissions",
+                  "nameLocation": "476:11:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1409,
+                  "src": "459:28:8",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1405,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "459:7:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 1406,
+                    "nodeType": "ArrayTypeName",
+                    "src": "459:9:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "458:30:8"
+            },
+            "scope": 1410,
+            "src": "411:78:8",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1411,
+        "src": "129:363:8",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:461:8"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.19+commit.7dd6d404.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.10",
+  "updatedAt": "2023-07-24T08:15:11.947Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "title": "Interface that every module contract should implement",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "getInitFunction()": {
+        "notice": "This function returns the signature of configure function"
+      },
+      "getPermissions()": {
+        "notice": "Return the permission flags that are associated with a module"
+      }
+    },
+    "version": 1
+  }
+}

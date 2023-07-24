@@ -1,0 +1,1582 @@
+{
+  "contractName": "IPermissionManager",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_delegate",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_module",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_perm",
+          "type": "bytes32"
+        }
+      ],
+      "name": "checkPermission",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_delegate",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_details",
+          "type": "bytes32"
+        }
+      ],
+      "name": "addDelegate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_delegate",
+          "type": "address"
+        }
+      ],
+      "name": "deleteDelegate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_potentialDelegate",
+          "type": "address"
+        }
+      ],
+      "name": "checkDelegate",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_delegate",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_module",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_perm",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bool",
+          "name": "_valid",
+          "type": "bool"
+        }
+      ],
+      "name": "changePermission",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_delegate",
+          "type": "address"
+        },
+        {
+          "internalType": "address[]",
+          "name": "_modules",
+          "type": "address[]"
+        },
+        {
+          "internalType": "bytes32[]",
+          "name": "_perms",
+          "type": "bytes32[]"
+        },
+        {
+          "internalType": "bool[]",
+          "name": "_valids",
+          "type": "bool[]"
+        }
+      ],
+      "name": "changePermissionMulti",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_module",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_perm",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getAllDelegatesWithPerm",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_delegate",
+          "type": "address"
+        },
+        {
+          "internalType": "uint8[]",
+          "name": "_types",
+          "type": "uint8[]"
+        }
+      ],
+      "name": "getAllModulesAndPermsFromTypes",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        },
+        {
+          "internalType": "bytes32[]",
+          "name": "",
+          "type": "bytes32[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getPermissions",
+      "outputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "",
+          "type": "bytes32[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAllDelegates",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_delegate\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"_details\",\"type\":\"bytes32\"}],\"name\":\"addDelegate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_delegate\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_module\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"_perm\",\"type\":\"bytes32\"},{\"internalType\":\"bool\",\"name\":\"_valid\",\"type\":\"bool\"}],\"name\":\"changePermission\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_delegate\",\"type\":\"address\"},{\"internalType\":\"address[]\",\"name\":\"_modules\",\"type\":\"address[]\"},{\"internalType\":\"bytes32[]\",\"name\":\"_perms\",\"type\":\"bytes32[]\"},{\"internalType\":\"bool[]\",\"name\":\"_valids\",\"type\":\"bool[]\"}],\"name\":\"changePermissionMulti\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_potentialDelegate\",\"type\":\"address\"}],\"name\":\"checkDelegate\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_delegate\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_module\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"_perm\",\"type\":\"bytes32\"}],\"name\":\"checkPermission\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_delegate\",\"type\":\"address\"}],\"name\":\"deleteDelegate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllDelegates\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_module\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"_perm\",\"type\":\"bytes32\"}],\"name\":\"getAllDelegatesWithPerm\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_delegate\",\"type\":\"address\"},{\"internalType\":\"uint8[]\",\"name\":\"_types\",\"type\":\"uint8[]\"}],\"name\":\"getAllModulesAndPermsFromTypes\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"},{\"internalType\":\"bytes32[]\",\"name\":\"\",\"type\":\"bytes32[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getPermissions\",\"outputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"\",\"type\":\"bytes32[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"addDelegate(address,bytes32)\":{\"params\":{\"_delegate\":\"Ethereum address of the delegate\",\"_details\":\"Details about the delegate i.e `Belongs to financial firm`\"}},\"changePermission(address,address,bytes32,bool)\":{\"params\":{\"_delegate\":\"Ethereum address of the delegate\",\"_module\":\"Ethereum contract address of the module\",\"_perm\":\"Permission flag\",\"_valid\":\"Bool flag use to switch on/off the permission\"},\"returns\":{\"_0\":\"bool\"}},\"changePermissionMulti(address,address[],bytes32[],bool[])\":{\"params\":{\"_delegate\":\"Ethereum address of the delegate\",\"_modules\":\"Multiple module matching the multiperms, needs to be same length\",\"_perms\":\"Multiple permission flag needs to be changed\",\"_valids\":\"Bool array consist the flag to switch on/off the permission\"}},\"checkDelegate(address)\":{\"params\":{\"_potentialDelegate\":\"the address of potential delegate\"},\"returns\":{\"_0\":\"bool\"}},\"checkPermission(address,address,bytes32)\":{\"params\":{\"_delegate\":\"Ethereum address of the delegate\",\"_module\":\"Ethereum contract address of the module\",\"_perm\":\"Permission flag\"},\"returns\":{\"_0\":\"bool\"}},\"deleteDelegate(address)\":{\"params\":{\"_delegate\":\"Ethereum address of the delegate\"}},\"getAllDelegates()\":{\"returns\":{\"_0\":\"address[]\"}},\"getAllDelegatesWithPerm(address,bytes32)\":{\"params\":{\"_module\":\"Ethereum contract address of the module\",\"_perm\":\"Permission flag\"},\"returns\":{\"_0\":\"address[]\"}},\"getAllModulesAndPermsFromTypes(address,uint8[])\":{\"details\":\"possible that function get out of gas is there are lot of modules and perm related to them\",\"params\":{\"_delegate\":\"Ethereum address of the delegate\",\"_types\":\"uint8[] of types\"},\"returns\":{\"_0\":\"address[] the address array of Modules this delegate has permission\",\"_1\":\"bytes32[] the permission array of the corresponding Modules\"}},\"getPermissions()\":{\"returns\":{\"_0\":\"Array of permission flags\"}}},\"title\":\"Interface to be implemented by all permission manager modules\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"addDelegate(address,bytes32)\":{\"notice\":\"Used to add a delegate\"},\"changePermission(address,address,bytes32,bool)\":{\"notice\":\"Used to provide/change the permission to the delegate corresponds to the module contract\"},\"changePermissionMulti(address,address[],bytes32[],bool[])\":{\"notice\":\"Used to change one or more permissions for a single delegate at once\"},\"checkDelegate(address)\":{\"notice\":\"Used to check if an address is a delegate or not\"},\"checkPermission(address,address,bytes32)\":{\"notice\":\"Used to check the permission on delegate corresponds to module contract address\"},\"deleteDelegate(address)\":{\"notice\":\"Used to delete a delegate\"},\"getAllDelegates()\":{\"notice\":\"Used to get all delegates\"},\"getAllDelegatesWithPerm(address,bytes32)\":{\"notice\":\"Used to return all delegates with a given permission and module\"},\"getAllModulesAndPermsFromTypes(address,uint8[])\":{\"notice\":\"Used to return all permission of a single or multiple module\"},\"getPermissions()\":{\"notice\":\"Used to get the Permission flag related the `this` contract\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/modules/PermissionManager/IPermissionManager.sol\":\"IPermissionManager\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/modules/PermissionManager/IPermissionManager.sol\":{\"keccak256\":\"0x9021d0e0060429b33c4b580a5ea44482eb3fa923206c37d3767637133c5cd1f5\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7552e7563e5e1990ac3ced5d11c2702cd28dc862035bb737b908f1d15eeb83eb\",\"dweb:/ipfs/QmbqFrrKnuS7xziVskHGxsuFkb3Jkab1yK1UvPcoMr184K\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.19;\n\n/**\n * @title Interface to be implemented by all permission manager modules\n */\ninterface IPermissionManager {\n    /**\n    * @notice Used to check the permission on delegate corresponds to module contract address\n    * @param _delegate Ethereum address of the delegate\n    * @param _module Ethereum contract address of the module\n    * @param _perm Permission flag\n    * @return bool\n    */\n    function checkPermission(address _delegate, address _module, bytes32 _perm) external view returns(bool);\n\n    /**\n    * @notice Used to add a delegate\n    * @param _delegate Ethereum address of the delegate\n    * @param _details Details about the delegate i.e `Belongs to financial firm`\n    */\n    function addDelegate(address _delegate, bytes32 _details) external;\n\n    /**\n    * @notice Used to delete a delegate\n    * @param _delegate Ethereum address of the delegate\n    */\n    function deleteDelegate(address _delegate) external;\n\n    /**\n    * @notice Used to check if an address is a delegate or not\n    * @param _potentialDelegate the address of potential delegate\n    * @return bool\n    */\n    function checkDelegate(address _potentialDelegate) external view returns(bool);\n\n    /**\n    * @notice Used to provide/change the permission to the delegate corresponds to the module contract\n    * @param _delegate Ethereum address of the delegate\n    * @param _module Ethereum contract address of the module\n    * @param _perm Permission flag\n    * @param _valid Bool flag use to switch on/off the permission\n    * @return bool\n    */\n    function changePermission(address _delegate, address _module, bytes32 _perm, bool _valid) external returns(bool);\n\n    /**\n    * @notice Used to change one or more permissions for a single delegate at once\n    * @param _delegate Ethereum address of the delegate\n    * @param _modules Multiple module matching the multiperms, needs to be same length\n    * @param _perms Multiple permission flag needs to be changed\n    * @param _valids Bool array consist the flag to switch on/off the permission\n    */\n    function changePermissionMulti(\n        address _delegate,\n        address[] calldata _modules,\n        bytes32[] calldata _perms,\n        bool[] calldata _valids\n    ) external;\n\n    /**\n    * @notice Used to return all delegates with a given permission and module\n    * @param _module Ethereum contract address of the module\n    * @param _perm Permission flag\n    * @return address[]\n    */\n    function getAllDelegatesWithPerm(address _module, bytes32 _perm) external view returns(address[] memory);\n\n    /**\n    * @notice Used to return all permission of a single or multiple module\n    * @dev possible that function get out of gas is there are lot of modules and perm related to them\n    * @param _delegate Ethereum address of the delegate\n    * @param _types uint8[] of types\n    * @return address[] the address array of Modules this delegate has permission\n    * @return bytes32[] the permission array of the corresponding Modules\n    */\n    function getAllModulesAndPermsFromTypes(address _delegate, uint8[] calldata _types) external view returns(\n        address[] memory,\n        bytes32[] memory\n    );\n\n    /**\n    * @notice Used to get the Permission flag related the `this` contract\n    * @return Array of permission flags\n    */\n    function getPermissions() external view returns(bytes32[] memory);\n\n    /**\n    * @notice Used to get all delegates\n    * @return address[]\n    */\n    function getAllDelegates() external view returns(address[] memory);\n\n}\n",
+  "sourcePath": "/Users/hanbin/opusm/st-mvp/contracts/modules/PermissionManager/IPermissionManager.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/modules/PermissionManager/IPermissionManager.sol",
+    "exportedSymbols": {
+      "IPermissionManager": [
+        5872
+      ]
+    },
+    "id": 5873,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 5767,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".19"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:23"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IPermissionManager",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 5768,
+          "nodeType": "StructuredDocumentation",
+          "src": "57:79:23",
+          "text": " @title Interface to be implemented by all permission manager modules"
+        },
+        "fullyImplemented": false,
+        "id": 5872,
+        "linearizedBaseContracts": [
+          5872
+        ],
+        "name": "IPermissionManager",
+        "nameLocation": "147:18:23",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 5769,
+              "nodeType": "StructuredDocumentation",
+              "src": "172:275:23",
+              "text": " @notice Used to check the permission on delegate corresponds to module contract address\n @param _delegate Ethereum address of the delegate\n @param _module Ethereum contract address of the module\n @param _perm Permission flag\n @return bool"
+            },
+            "functionSelector": "8658b8b9",
+            "id": 5780,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "checkPermission",
+            "nameLocation": "461:15:23",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5776,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5771,
+                  "mutability": "mutable",
+                  "name": "_delegate",
+                  "nameLocation": "485:9:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5780,
+                  "src": "477:17:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5770,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "477:7:23",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5773,
+                  "mutability": "mutable",
+                  "name": "_module",
+                  "nameLocation": "504:7:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5780,
+                  "src": "496:15:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5772,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "496:7:23",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5775,
+                  "mutability": "mutable",
+                  "name": "_perm",
+                  "nameLocation": "521:5:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5780,
+                  "src": "513:13:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 5774,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "513:7:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "476:51:23"
+            },
+            "returnParameters": {
+              "id": 5779,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5778,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5780,
+                  "src": "550:4:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 5777,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "550:4:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "549:6:23"
+            },
+            "scope": 5872,
+            "src": "452:104:23",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 5781,
+              "nodeType": "StructuredDocumentation",
+              "src": "562:184:23",
+              "text": " @notice Used to add a delegate\n @param _delegate Ethereum address of the delegate\n @param _details Details about the delegate i.e `Belongs to financial firm`"
+            },
+            "functionSelector": "9cdae4ee",
+            "id": 5788,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addDelegate",
+            "nameLocation": "760:11:23",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5786,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5783,
+                  "mutability": "mutable",
+                  "name": "_delegate",
+                  "nameLocation": "780:9:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5788,
+                  "src": "772:17:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5782,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "772:7:23",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5785,
+                  "mutability": "mutable",
+                  "name": "_details",
+                  "nameLocation": "799:8:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5788,
+                  "src": "791:16:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 5784,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "791:7:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "771:37:23"
+            },
+            "returnParameters": {
+              "id": 5787,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "817:0:23"
+            },
+            "scope": 5872,
+            "src": "751:67:23",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 5789,
+              "nodeType": "StructuredDocumentation",
+              "src": "824:106:23",
+              "text": " @notice Used to delete a delegate\n @param _delegate Ethereum address of the delegate"
+            },
+            "functionSelector": "71890352",
+            "id": 5794,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "deleteDelegate",
+            "nameLocation": "944:14:23",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5792,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5791,
+                  "mutability": "mutable",
+                  "name": "_delegate",
+                  "nameLocation": "967:9:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5794,
+                  "src": "959:17:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5790,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "959:7:23",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "958:19:23"
+            },
+            "returnParameters": {
+              "id": 5793,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "986:0:23"
+            },
+            "scope": 5872,
+            "src": "935:52:23",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 5795,
+              "nodeType": "StructuredDocumentation",
+              "src": "993:158:23",
+              "text": " @notice Used to check if an address is a delegate or not\n @param _potentialDelegate the address of potential delegate\n @return bool"
+            },
+            "functionSelector": "62c90dc5",
+            "id": 5802,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "checkDelegate",
+            "nameLocation": "1165:13:23",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5798,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5797,
+                  "mutability": "mutable",
+                  "name": "_potentialDelegate",
+                  "nameLocation": "1187:18:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5802,
+                  "src": "1179:26:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5796,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1179:7:23",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1178:28:23"
+            },
+            "returnParameters": {
+              "id": 5801,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5800,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5802,
+                  "src": "1229:4:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 5799,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1229:4:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1228:6:23"
+            },
+            "scope": 5872,
+            "src": "1156:79:23",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 5803,
+              "nodeType": "StructuredDocumentation",
+              "src": "1241:350:23",
+              "text": " @notice Used to provide/change the permission to the delegate corresponds to the module contract\n @param _delegate Ethereum address of the delegate\n @param _module Ethereum contract address of the module\n @param _perm Permission flag\n @param _valid Bool flag use to switch on/off the permission\n @return bool"
+            },
+            "functionSelector": "dec7542f",
+            "id": 5816,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "changePermission",
+            "nameLocation": "1605:16:23",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5812,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5805,
+                  "mutability": "mutable",
+                  "name": "_delegate",
+                  "nameLocation": "1630:9:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5816,
+                  "src": "1622:17:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5804,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1622:7:23",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5807,
+                  "mutability": "mutable",
+                  "name": "_module",
+                  "nameLocation": "1649:7:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5816,
+                  "src": "1641:15:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5806,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1641:7:23",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5809,
+                  "mutability": "mutable",
+                  "name": "_perm",
+                  "nameLocation": "1666:5:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5816,
+                  "src": "1658:13:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 5808,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1658:7:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5811,
+                  "mutability": "mutable",
+                  "name": "_valid",
+                  "nameLocation": "1678:6:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5816,
+                  "src": "1673:11:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 5810,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1673:4:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1621:64:23"
+            },
+            "returnParameters": {
+              "id": 5815,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5814,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5816,
+                  "src": "1703:4:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 5813,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1703:4:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1702:6:23"
+            },
+            "scope": 5872,
+            "src": "1596:113:23",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 5817,
+              "nodeType": "StructuredDocumentation",
+              "src": "1715:382:23",
+              "text": " @notice Used to change one or more permissions for a single delegate at once\n @param _delegate Ethereum address of the delegate\n @param _modules Multiple module matching the multiperms, needs to be same length\n @param _perms Multiple permission flag needs to be changed\n @param _valids Bool array consist the flag to switch on/off the permission"
+            },
+            "functionSelector": "2ec0508d",
+            "id": 5831,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "changePermissionMulti",
+            "nameLocation": "2111:21:23",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5829,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5819,
+                  "mutability": "mutable",
+                  "name": "_delegate",
+                  "nameLocation": "2150:9:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5831,
+                  "src": "2142:17:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5818,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2142:7:23",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5822,
+                  "mutability": "mutable",
+                  "name": "_modules",
+                  "nameLocation": "2188:8:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5831,
+                  "src": "2169:27:23",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_calldata_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 5820,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "2169:7:23",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 5821,
+                    "nodeType": "ArrayTypeName",
+                    "src": "2169:9:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5825,
+                  "mutability": "mutable",
+                  "name": "_perms",
+                  "nameLocation": "2225:6:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5831,
+                  "src": "2206:25:23",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_calldata_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 5823,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "2206:7:23",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 5824,
+                    "nodeType": "ArrayTypeName",
+                    "src": "2206:9:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5828,
+                  "mutability": "mutable",
+                  "name": "_valids",
+                  "nameLocation": "2257:7:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5831,
+                  "src": "2241:23:23",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bool_$dyn_calldata_ptr",
+                    "typeString": "bool[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 5826,
+                      "name": "bool",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "2241:4:23",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "id": 5827,
+                    "nodeType": "ArrayTypeName",
+                    "src": "2241:6:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bool_$dyn_storage_ptr",
+                      "typeString": "bool[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2132:138:23"
+            },
+            "returnParameters": {
+              "id": 5830,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2279:0:23"
+            },
+            "scope": 5872,
+            "src": "2102:178:23",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 5832,
+              "nodeType": "StructuredDocumentation",
+              "src": "2286:208:23",
+              "text": " @notice Used to return all delegates with a given permission and module\n @param _module Ethereum contract address of the module\n @param _perm Permission flag\n @return address[]"
+            },
+            "functionSelector": "885a4860",
+            "id": 5842,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAllDelegatesWithPerm",
+            "nameLocation": "2508:23:23",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5837,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5834,
+                  "mutability": "mutable",
+                  "name": "_module",
+                  "nameLocation": "2540:7:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5842,
+                  "src": "2532:15:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5833,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2532:7:23",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5836,
+                  "mutability": "mutable",
+                  "name": "_perm",
+                  "nameLocation": "2557:5:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5842,
+                  "src": "2549:13:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 5835,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2549:7:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2531:32:23"
+            },
+            "returnParameters": {
+              "id": 5841,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5840,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5842,
+                  "src": "2586:16:23",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 5838,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "2586:7:23",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 5839,
+                    "nodeType": "ArrayTypeName",
+                    "src": "2586:9:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2585:18:23"
+            },
+            "scope": 5872,
+            "src": "2499:105:23",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 5843,
+              "nodeType": "StructuredDocumentation",
+              "src": "2610:436:23",
+              "text": " @notice Used to return all permission of a single or multiple module\n @dev possible that function get out of gas is there are lot of modules and perm related to them\n @param _delegate Ethereum address of the delegate\n @param _types uint8[] of types\n @return address[] the address array of Modules this delegate has permission\n @return bytes32[] the permission array of the corresponding Modules"
+            },
+            "functionSelector": "3a15f181",
+            "id": 5857,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAllModulesAndPermsFromTypes",
+            "nameLocation": "3060:30:23",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5849,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5845,
+                  "mutability": "mutable",
+                  "name": "_delegate",
+                  "nameLocation": "3099:9:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5857,
+                  "src": "3091:17:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5844,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3091:7:23",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5848,
+                  "mutability": "mutable",
+                  "name": "_types",
+                  "nameLocation": "3127:6:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5857,
+                  "src": "3110:23:23",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint8_$dyn_calldata_ptr",
+                    "typeString": "uint8[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 5846,
+                      "name": "uint8",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "3110:5:23",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint8",
+                        "typeString": "uint8"
+                      }
+                    },
+                    "id": 5847,
+                    "nodeType": "ArrayTypeName",
+                    "src": "3110:7:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint8_$dyn_storage_ptr",
+                      "typeString": "uint8[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3090:44:23"
+            },
+            "returnParameters": {
+              "id": 5856,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5852,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5857,
+                  "src": "3166:16:23",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 5850,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "3166:7:23",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 5851,
+                    "nodeType": "ArrayTypeName",
+                    "src": "3166:9:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5855,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5857,
+                  "src": "3192:16:23",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 5853,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "3192:7:23",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 5854,
+                    "nodeType": "ArrayTypeName",
+                    "src": "3192:9:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3156:58:23"
+            },
+            "scope": 5872,
+            "src": "3051:164:23",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 5858,
+              "nodeType": "StructuredDocumentation",
+              "src": "3221:124:23",
+              "text": " @notice Used to get the Permission flag related the `this` contract\n @return Array of permission flags"
+            },
+            "functionSelector": "c3a07df6",
+            "id": 5864,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPermissions",
+            "nameLocation": "3359:14:23",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5859,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3373:2:23"
+            },
+            "returnParameters": {
+              "id": 5863,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5862,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5864,
+                  "src": "3398:16:23",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 5860,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "3398:7:23",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 5861,
+                    "nodeType": "ArrayTypeName",
+                    "src": "3398:9:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3397:18:23"
+            },
+            "scope": 5872,
+            "src": "3350:66:23",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 5865,
+              "nodeType": "StructuredDocumentation",
+              "src": "3422:74:23",
+              "text": " @notice Used to get all delegates\n @return address[]"
+            },
+            "functionSelector": "7a4f3764",
+            "id": 5871,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAllDelegates",
+            "nameLocation": "3510:15:23",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5866,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3525:2:23"
+            },
+            "returnParameters": {
+              "id": 5870,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5869,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5871,
+                  "src": "3550:16:23",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 5867,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "3550:7:23",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 5868,
+                    "nodeType": "ArrayTypeName",
+                    "src": "3550:9:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3549:18:23"
+            },
+            "scope": 5872,
+            "src": "3501:67:23",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 5873,
+        "src": "137:3434:23",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:3540:23"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.19+commit.7dd6d404.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.10",
+  "updatedAt": "2023-07-24T08:15:11.973Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "addDelegate(address,bytes32)": {
+        "params": {
+          "_delegate": "Ethereum address of the delegate",
+          "_details": "Details about the delegate i.e `Belongs to financial firm`"
+        }
+      },
+      "changePermission(address,address,bytes32,bool)": {
+        "params": {
+          "_delegate": "Ethereum address of the delegate",
+          "_module": "Ethereum contract address of the module",
+          "_perm": "Permission flag",
+          "_valid": "Bool flag use to switch on/off the permission"
+        },
+        "returns": {
+          "_0": "bool"
+        }
+      },
+      "changePermissionMulti(address,address[],bytes32[],bool[])": {
+        "params": {
+          "_delegate": "Ethereum address of the delegate",
+          "_modules": "Multiple module matching the multiperms, needs to be same length",
+          "_perms": "Multiple permission flag needs to be changed",
+          "_valids": "Bool array consist the flag to switch on/off the permission"
+        }
+      },
+      "checkDelegate(address)": {
+        "params": {
+          "_potentialDelegate": "the address of potential delegate"
+        },
+        "returns": {
+          "_0": "bool"
+        }
+      },
+      "checkPermission(address,address,bytes32)": {
+        "params": {
+          "_delegate": "Ethereum address of the delegate",
+          "_module": "Ethereum contract address of the module",
+          "_perm": "Permission flag"
+        },
+        "returns": {
+          "_0": "bool"
+        }
+      },
+      "deleteDelegate(address)": {
+        "params": {
+          "_delegate": "Ethereum address of the delegate"
+        }
+      },
+      "getAllDelegates()": {
+        "returns": {
+          "_0": "address[]"
+        }
+      },
+      "getAllDelegatesWithPerm(address,bytes32)": {
+        "params": {
+          "_module": "Ethereum contract address of the module",
+          "_perm": "Permission flag"
+        },
+        "returns": {
+          "_0": "address[]"
+        }
+      },
+      "getAllModulesAndPermsFromTypes(address,uint8[])": {
+        "details": "possible that function get out of gas is there are lot of modules and perm related to them",
+        "params": {
+          "_delegate": "Ethereum address of the delegate",
+          "_types": "uint8[] of types"
+        },
+        "returns": {
+          "_0": "address[] the address array of Modules this delegate has permission",
+          "_1": "bytes32[] the permission array of the corresponding Modules"
+        }
+      },
+      "getPermissions()": {
+        "returns": {
+          "_0": "Array of permission flags"
+        }
+      }
+    },
+    "title": "Interface to be implemented by all permission manager modules",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "addDelegate(address,bytes32)": {
+        "notice": "Used to add a delegate"
+      },
+      "changePermission(address,address,bytes32,bool)": {
+        "notice": "Used to provide/change the permission to the delegate corresponds to the module contract"
+      },
+      "changePermissionMulti(address,address[],bytes32[],bool[])": {
+        "notice": "Used to change one or more permissions for a single delegate at once"
+      },
+      "checkDelegate(address)": {
+        "notice": "Used to check if an address is a delegate or not"
+      },
+      "checkPermission(address,address,bytes32)": {
+        "notice": "Used to check the permission on delegate corresponds to module contract address"
+      },
+      "deleteDelegate(address)": {
+        "notice": "Used to delete a delegate"
+      },
+      "getAllDelegates()": {
+        "notice": "Used to get all delegates"
+      },
+      "getAllDelegatesWithPerm(address,bytes32)": {
+        "notice": "Used to return all delegates with a given permission and module"
+      },
+      "getAllModulesAndPermsFromTypes(address,uint8[])": {
+        "notice": "Used to return all permission of a single or multiple module"
+      },
+      "getPermissions()": {
+        "notice": "Used to get the Permission flag related the `this` contract"
+      }
+    },
+    "version": 1
+  }
+}
